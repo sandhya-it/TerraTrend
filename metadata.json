@@ -1,0 +1,6 @@
+{
+  "name": "TerraTrend — Earth Change Detection & Analysis Platform",
+  "description": "NASA Earth science intelligence platform for temporal trend detection, geospatial regional comparison, and statistical significance testing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
