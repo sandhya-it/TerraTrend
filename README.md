@@ -1,42 +1,185 @@
-# TerraTrend — Intelligent Earth Change Detection & Analysis Platform
+# 🌍 TerraTrend – Earth Observation Platform
 
-TerraTrend is a NASA Mission Control-inspired Earth science intelligence platform built for discovering environmental datasets, quantifying long-term temporal trends, detecting opposite regional trajectories, and evaluating statistical significance.
+### Discover Earth. Analyze Change. Shape a Sustainable Future.
 
-## Core Scientific Capabilities
+TerraTrend is an Earth observation and environmental analysis platform designed to transform complex NASA Earth science datasets into meaningful insights. It helps users explore environmental changes, monitor climate trends, understand geographical patterns, and visualize important changes happening across our planet.
 
-1. **Temporal Trend Detection**: Computes tie-corrected **Mann-Kendall** monotonic trend tests ($S$, $\text{Var}(S)$, $Z$, two-tailed $p$-value, Kendall $\tau$), **Sen's Slope** median rate of change with 95% confidence intervals, **OLS Linear Regression** ($R^2$, standard error, $t$-stat), moving averages, seasonal climatology, and lag-1 residual autocorrelation (Durbin-Watson) diagnostics.
-2. **Geospatial Regional Comparison**: Interactive **Leaflet** mapping layered with **NASA GIBS WMTS** satellite imagery (MODIS True Color, Land Surface Temperature, GPM IMERG Precipitation, MODIS NDVI) and side-by-side **Opposite Regional Trend Detection** across climate basins.
-3. **Statistical Significance Lab**: Separates trend direction, physical magnitude, statistical significance ($\alpha \in \{0.01, 0.05, 0.10\}$), and practical significance, with **Bonferroni** and **Benjamini-Hochberg (FDR)** multiple-comparison corrections.
+By combining NASA data, artificial intelligence, geospatial analysis, and interactive visualizations, TerraTrend aims to make environmental intelligence more accessible, understandable, and useful for everyone.
 
-## NASA Data Service Integrations
 
-- **NASA Earthdata CMR** (`/api/nasa/cmr`): Searches live NASA collections and retrieves official metadata.
-- **NASA POWER API** (`/api/nasa/power`): Retrieves historical monthly meteorological and solar time series (`T2M`, `PRECTOTCORR`, `GWETTOP`, `TS`, `RH2M`, `WS10M`, `ALLSKY_SFC_SW_DWN`).
-- **NASA GIBS WMTS**: Renders orbital satellite imagery overlays directly on the geospatial map.
-- **Demonstration Mode**: Explicitly labeled synthetic benchmark profiles so every module can be verified deterministically offline or in restricted sandboxes.
-- **Custom CSV Upload**: Client-side parser and validator with missing-data tracking (`NaN`, `-999`) and NetCDF/HDF5 conversion guidance.
+## 🎯 Problem Statement
 
-## Project Structure
+Environmental datasets are often complex, distributed across multiple sources, and difficult for ordinary users to interpret. Understanding long-term environmental changes requires technical knowledge and considerable data analysis.
 
-- `server.ts` — Express server with NASA CMR & POWER proxy routes, TTL response cache, and Vite middleware.
-- `src/lib/statistics.ts` — Mann-Kendall, Sen's Slope, OLS regression, autocorrelation, and multiple-comparison math engine.
-- `src/lib/nasaCatalog.ts` — Variable registry, regional basin presets, GIBS layers, and curated NASA datasets.
-- `src/lib/demoDatasets.ts` — Deterministic labeled Demonstration Benchmark generator.
-- `src/lib/csvParser.ts` — Client-side CSV parser & validation engine.
-- `src/lib/reportExport.ts` — PDF (`jsPDF`) and CSV scientific report exporters.
-- `src/components/` — `EarthGlobeCanvas` (Three.js 3D Earth + orbiting satellite), `EarthGeospatialMap` (Leaflet + GIBS), `ScientificTimeSeriesChart` (Plotly.js).
-- `src/modules/` — All 11 functional application modules (`Overview`, `Mission Control`, `Earth Data Explorer`, `Variable Selection`, `Temporal Analysis`, `Geospatial Analysis`, `Significance Lab`, `Regional Comparison`, `Scientific Insights`, `Reports`, `Settings`).
+TerraTrend aims to simplify this process by bringing Earth observation data, environmental analytics, and interactive visualizations together in one accessible platform.
 
-## Local Development & Build
+## 🌎 Project Overview
+
+Earth continuously experiences environmental changes, including rising temperatures, deforestation, changing rainfall patterns, melting glaciers, and shifts in land use. Understanding these changes requires analyzing large volumes of scientific and satellite data.
+
+TerraTrend addresses this challenge by providing a unified platform where users can explore environmental information, analyze historical trends, visualize geographical changes, and gain insights from Earth observation datasets.
+
+The platform aims to bridge the gap between complex scientific information and practical environmental understanding.
+
+## ✨ Key Features
+
+### 1. 🛰️ NASA Data Integration
+- Connect with NASA's open Earth science data and APIs.
+- Explore publicly available environmental and satellite datasets.
+- Retrieve scientific information for environmental analysis.
+
+### 2. 🌡️ Climate Trend Analysis
+- Analyze temperature and environmental trends.
+- Explore historical climate variations.
+- Understand changes across different geographical regions.
+
+### 3. 🌍 Interactive Earth Visualization
+- Display environmental information through interactive dashboards.
+- Visualize geographical patterns and environmental indicators.
+- Make complex datasets easier to understand.
+
+### 4. 🤖 AI-Powered Environmental Insights
+- Generate meaningful interpretations from environmental datasets.
+- Identify unusual patterns and environmental changes.
+- Support data-driven environmental understanding.
+
+### 5. 📊 Data Analytics Dashboard
+- Present important environmental indicators.
+- Display analytical results using charts and graphs.
+- Provide a centralized view of environmental information.
+
+### 6. 🌱 Environmental Monitoring
+- Explore changes in forests, vegetation, water bodies, and land surfaces.
+- Support awareness of environmental challenges.
+- Encourage sustainable and informed decision-making.
+
+---
+
+## 🛠️ Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| React.js | Frontend development |
+| TypeScript | Application logic and type safety |
+| Tailwind CSS | Responsive user interface |
+| Vite | Development and build tool |
+| NASA APIs | Earth science data integration |
+| AI/ML | Environmental analysis and insights |
+| Vercel | Application deployment |
+
+## ⚙️ How TerraTrend Works
+
+1. **Data Collection:** Retrieves relevant Earth science information from NASA data sources.
+2. **Data Processing:** Organizes and prepares environmental datasets for analysis.
+3. **Data Analysis:** Applies analytical techniques and AI-based methods to identify meaningful patterns.
+4. **Visualization:** Presents results through interactive dashboards, charts, and geographical visualizations.
+5. **Insight Generation:** Converts analytical findings into understandable environmental insights.
+
+
+## 💡 Innovation & Uniqueness
+
+- Combines NASA Earth science data with AI-powered environmental analysis.
+- Transforms complex datasets into accessible visual insights.
+- Brings environmental monitoring and geographical analysis into one platform.
+- Encourages data-driven awareness of climate and environmental challenges.
+- Provides a foundation for future predictive environmental intelligence.
+
+## 🌱 Real-World Impact
+
+TerraTrend aims to support:
+
+- **Researchers:** Explore environmental datasets and identify trends.
+- **Students:** Understand Earth science through interactive visualizations.
+- **Environmental Organizations:** Gain insights into environmental changes.
+- **Policymakers:** Access information that can support environmental planning.
+- **General Public:** Improve awareness of climate change and sustainability.
+
+
+## 🔮 Future Developments
+
+- Integrate advanced AI models for environmental prediction.
+- Introduce real-time satellite monitoring and automated alerts.
+- Expand geospatial analysis with interactive global maps.
+- Add regional climate risk assessment and downloadable reports.
+- Develop multilingual and mobile-friendly experiences.
+
+
+## 🚀 Installation & Setup
+
+### Prerequisites
+- Node.js
+- Bun or npm
+- Git
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/sandhya-it/TerraTrend.git
+```
+
+### Step 2: Navigate to the Project
+
+```bash
+cd TerraTrend
+```
+
+### Step 3: Install Dependencies
+
+```bash
+bun install
+```
+
+Alternatively:
 
 ```bash
 npm install
-npm run dev       # Starts Express + Vite server on port 3000
-npm run lint      # Runs TypeScript type-checking (tsc --noEmit)
-npm run build     # Builds production client bundle into dist/
-npm start         # Serves API routes + production bundle on port 3000
 ```
 
-## Environment Variables
+### Step 4: Start the Development Server
 
-See `.env.example` for optional NASA endpoint overrides and optional server-side `NASA_EARTHDATA_TOKEN`. No secrets are ever exposed to frontend code.
+```bash
+bun run dev
+```
+
+Alternatively:
+
+```bash
+npm run dev
+```
+
+Open the local URL displayed in your terminal to explore the application.
+
+---
+
+## 📁 Project Structure
+
+```text
+TerraTrend/
+│
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── services/
+│   ├── assets/
+│   └── ...
+│
+├── public/
+├── index.html
+├── package.json
+├── vite.config.ts
+├── tsconfig.json
+└── README.md
+```
+
+## Demo link
+
+https://terratrend-cyan.vercel.app/
+
+
+## 🌍 Our Vision
+
+To make Earth observation smarter and more accessible by transforming scientific data into meaningful environmental intelligence.
+
+We believe that understanding environmental changes is the first step towards protecting our planet.
+
+### TerraTrend – Explore Earth. Understand Change. Protect Tomorrow. 🌱
